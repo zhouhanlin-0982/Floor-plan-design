@@ -1,0 +1,14 @@
+{
+  "name": "floorplan-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "konva": "^9.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-konva": "^18.0.3"
+  },
+  "scripts": {
+    "start": "npx http-server -c-1 public -p 3000"
+  }
+}

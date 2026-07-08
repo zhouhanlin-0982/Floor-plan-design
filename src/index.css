@@ -1,0 +1,56 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin: 0;
+  padding: 0;
+  background: #f6f8fa;
+}
+.app {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+}
+.panel {
+  width: 320px;
+  background: white;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  height: calc(100vh - 32px);
+  overflow: auto;
+}
+.canvasPanel {
+  flex: 1;
+  background: white;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  height: calc(100vh - 32px);
+}
+.room-item {
+  display:flex;
+  gap:8px;
+  align-items:center;
+  margin-bottom:8px;
+}
+.button {
+  display:inline-block;
+  padding:8px 12px;
+  background:#0366d6;
+  color:white;
+  border-radius:4px;
+  cursor:pointer;
+  border:none;
+}
+.small {
+  padding:6px 8px;
+  font-size:14px;
+}
+.input {
+  padding:6px 8px;
+  border:1px solid #ddd;
+  border-radius:4px;
+  width:100%;
+}
+.room-list {
+  margin-top:12px;
+}

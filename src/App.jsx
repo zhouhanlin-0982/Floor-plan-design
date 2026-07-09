@@ -10,6 +10,9 @@ export default function App() {
   const [currentFloor, setCurrentFloor] = useState(1);
   const [floorsList, setFloorsList] = useState([1]);
   const [messages, setMessages] = useState([]);
+  const [showDimensions, setShowDimensions] = useState(true);
+  const [showDoors, setShowDoors] = useState(true);
+  const [showWindows, setShowWindows] = useState(true);
   const stageRef = useRef();
 
   function handleParseAndGenerate() {
@@ -63,6 +66,15 @@ export default function App() {
         </div>
 
         <div style={{marginTop:8}}>
+          <h4>显示选项</h4>
+          <div style={{display:'flex', gap:8, flexWrap:'wrap'}}>
+            <label style={{display:'flex',alignItems:'center',gap:6}}><input type="checkbox" checked={showDimensions} onChange={e=>setShowDimensions(e.target.checked)} /> 显示尺寸</label>
+            <label style={{display:'flex',alignItems:'center',gap:6}}><input type="checkbox" checked={showDoors} onChange={e=>setShowDoors(e.target.checked)} /> 显示门</label>
+            <label style={{display:'flex',alignItems:'center',gap:6}}><input type="checkbox" checked={showWindows} onChange={e=>setShowWindows(e.target.checked)} /> 显示窗</label>
+          </div>
+        </div>
+
+        <div style={{marginTop:8}}>
           <h4>楼层</h4>
           <div style={{display:'flex', gap:8}}>
             {floorsList.map(f => (
@@ -76,7 +88,7 @@ export default function App() {
           <div style={{color:'#555', fontSize:13}}>
             <ul>
               <li>支持格式示例：一楼：客厅25，厨房8，卫生间4；二楼：卧室12、10、10，卫生间4，楼梯东侧</li>
-              <li>解析为草图，生成后可在画布上拖拽微调。若解析失败会给出提示，请按示例调整输入。</li>
+              <li>解析为草图，生成后��在画布上拖拽微调。若解析失败会给出提示，请按示例调整输入。</li>
             </ul>
             {messages.length>0 && (
               <div style={{marginTop:8, color:'#b5533a'}}>
@@ -101,6 +113,9 @@ export default function App() {
           currentFloor={currentFloor}
           onDragEnd={onDragEnd}
           stageRef={stageRef}
+          showDimensions={showDimensions}
+          showDoors={showDoors}
+          showWindows={showWindows}
         />
       </div>
     </div>

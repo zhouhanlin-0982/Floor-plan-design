@@ -7,15 +7,15 @@ body {
 .app {
   display: flex;
   gap: 16px;
-  padding: 16px;
+  padding: 12px;
 }
 .panel {
-  width: 320px;
+  width: 380px;
   background: white;
   border-radius: 6px;
   padding: 12px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  height: calc(100vh - 32px);
+  height: calc(100vh - 24px);
   overflow: auto;
 }
 .canvasPanel {
@@ -24,7 +24,7 @@ body {
   border-radius: 6px;
   padding: 12px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  height: calc(100vh - 32px);
+  height: calc(100vh - 24px);
 }
 .room-item {
   display:flex;
@@ -51,6 +51,19 @@ body {
   border-radius:4px;
   width:100%;
 }
+.big {
+  font-size:15px;
+  padding:8px;
+}
 .room-list {
   margin-top:12px;
+}
+
+/* mobile responsiveness */
+@media (max-width: 800px) {
+  .app { flex-direction: column; padding:10px }
+  .panel { width: 100%; height: auto }
+  .canvasPanel { width: 100%; height: 60vh }
+  textarea.input { font-size:16px }
+  .button { width:48% }
 }

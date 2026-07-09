@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Report-style mockup SVG: simplified illustrative floor plan to match requested visual style.
+  File: mockups/report_style_mockup.svg
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <!-- Title -->
+  <text x="600" y="36" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="middle" fill="#111">一层平面图（Mockup — 报建样式示意）</text>
+
+  <!-- Outer boundary -->
+  <rect x="60" y="80" width="1080" height="620" fill="none" stroke="#222" stroke-width="2" />
+
+  <!-- Walls (double-lines) -->
+  <!-- left wall -->
+  <rect x="80" y="100" width="12" height="580" fill="#222" />
+  <rect x="104" y="100" width="6" height="580" fill="#ffffff" />
+  <rect x="110" y="100" width="12" height="580" fill="#222" />
+
+  <!-- top wall -->
+  <rect x="80" y="100" width="1040" height="12" fill="#222" />
+  <rect x="80" y="118" width="1040" height="6" fill="#ffffff" />
+  <rect x="80" y="124" width="1040" height="12" fill="#222" />
+
+  <!-- right wall -->
+  <rect x="1116" y="100" width="12" height="580" fill="#222" />
+  <rect x="1100" y="100" width="6" height="580" fill="#ffffff" />
+  <rect x="1084" y="100" width="12" height="580" fill="#222" />
+
+  <!-- bottom wall -->
+  <rect x="80" y="680" width="1040" height="12" fill="#222" />
+  <rect x="80" y="692" width="1040" height="6" fill="#ffffff" />
+  <rect x="80" y="698" width="1040" height="12" fill="#222" />
+
+  <!-- Rooms (simplified) -->
+  <!-- Master bedroom left top -->
+  <rect x="120" y="140" width="260" height="200" fill="#fff" stroke="#000" stroke-width="2" />
+  <text x="250" y="170" font-size="16" text-anchor="middle">主卧</text>
+  <text x="250" y="190" font-size="12" text-anchor="middle">3600 × 3800 mm</text>
+
+  <!-- Living room center -->
+  <rect x="400" y="140" width="520" height="420" fill="#fff" stroke="#000" stroke-width="2" />
+  <text x="660" y="170" font-size="18" text-anchor="middle">大厅</text>
+  <text x="660" y="200" font-size="12" text-anchor="middle">6700 × 10300 mm</text>
+
+  <!-- Kitchen right top -->
+  <rect x="940" y="140" width="160" height="150" fill="#fff" stroke="#000" stroke-width="2" />
+  <text x="1020" y="170" font-size="14" text-anchor="middle">厨房</text>
+  <text x="1020" y="190" font-size="12" text-anchor="middle">2400 × 3600 mm</text>
+
+  <!-- Bathroom right below kitchen -->
+  <rect x="940" y="310" width="160" height="120" fill="#fff" stroke="#000" stroke-width="2" />
+  <text x="1020" y="340" font-size="14" text-anchor="middle">卫生间</text>
+  <text x="1020" y="360" font-size="12" text-anchor="middle">1600 × 2400 mm</text>
+
+  <!-- Porch / front -->
+  <rect x="460" y="560" width="300" height="100" fill="#f4a261" stroke="#b35420" stroke-width="4" />
+  <text x="610" y="620" font-size="16" text-anchor="middle" fill="#522300">前庭</text>
+
+  <!-- Stair (right center) -->
+  <rect x="920" y="460" width="160" height="200" fill="#f6f3d7" stroke="#b58900" stroke-width="2" />
+  <text x="1000" y="500" font-size="14" text-anchor="middle">楼梯</text>
+  <!-- stair steps (simple) -->
+  <g stroke="#b58900" stroke-width="1.2">
+    <line x1="930" y1="520" x2="1070" y2="520" />
+    <line x1="930" y1="535" x2="1070" y2="535" />
+    <line x1="930" y1="550" x2="1070" y2="550" />
+    <line x1="930" y1="565" x2="1070" y2="565" />
+  </g>
+
+  <!-- Door example (arc) at living room bottom center -->
+  <path d="M610 560 A24 24 0 0 1 658 560" fill="none" stroke="#6b4f2a" stroke-width="3" />
+  <line x1="610" y1="560" x2="610" y2="560" stroke="#6b4f2a" stroke-width="3" />
+
+  <!-- Windows example (blue narrow rect) on top wall -->
+  <rect x="360" y="120" width="120" height="8" fill="#cfeffd" stroke="#5fb0e6" stroke-width="1" />
+  <rect x="760" y="120" width="120" height="8" fill="#cfeffd" stroke="#5fb0e6" stroke-width="1" />
+
+  <!-- Dimension lines (example, in mm) -->
+  <g font-family="Arial" font-size="12" fill="#111">
+    <!-- top total -->
+    <line x1="100" y1="90" x2="1120" y2="90" stroke="#111" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)" />
+    <text x="610" y="81" text-anchor="middle">15700 mm</text>
+
+    <!-- left total -->
+    <line x1="70" y1="120" x2="70" y2="700" stroke="#111" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)" />
+    <text x="54" y="410" text-anchor="middle" transform="rotate(-90 54 410)">10300 mm</text>
+  </g>
+
+  <!-- arrow marker definition -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#111" />
+    </marker>
+  </defs>
+
+  <!-- Title block / notes at bottom -->
+  <rect x="60" y="718" width="1080" height="70" fill="#fff" stroke="#222" stroke-width="1" />
+  <text x="200" y="748" font-family="Arial" font-size="14">一层平面图</text>
+  <text x="420" y="748" font-family="Arial" font-size="14">本层建筑面积：14000.00 平方毫米（示例，以 mm 为单位）</text>
+  <text x="420" y="768" font-family="Arial" font-size="14">注：此图为示意 mockup，正式图纸以导出 CAD/DXF 为准</text>
+
+</svg>

@@ -20,16 +20,16 @@ export default function PlanCanvas({ floors, currentFloor, onDragEnd, stageRef, 
     const x1 = r.x;
     const x2 = r.x + r.w;
     const y = r.y - 18;
-    const widthM = (r.w / scale).toFixed(2);
-    dims.push(<Line key={`h-${r.id}`} points={[x1, y, x2, y]} stroke="#2b2b2b" strokeWidth={1} />);
-    dims.push(<Text key={`ht-${r.id}`} text={`${widthM} m`} x={(x1+x2)/2 - 24} y={y-14} fontSize={12} fill="#2b2b2b" />);
+    const widthM = Math.round((r.w / scale) * 1000); // mm
+    dims.push(<Line key={`dim-h-${r.id}`} points={[x1, y, x2, y]} stroke="#2b2b2b" strokeWidth={1} />);
+    dims.push(<Text key={`dim-ht-${r.id}`} text={`${widthM} mm`} x={(x1+x2)/2 - 24} y={y-14} fontSize={12} fill="#2b2b2b" />);
     // vertical dimension left of room
     const vy1 = r.y;
     const vy2 = r.y + r.h;
     const vx = r.x - 30;
-    const heightM = (r.h / scale).toFixed(2);
-    dims.push(<Line key={`v-${r.id}`} points={[vx, vy1, vx, vy2]} stroke="#2b2b2b" strokeWidth={1} />);
-    dims.push(<Text key={`vt-${r.id}`} text={`${heightM} m`} x={vx-6} y={(vy1+vy2)/2 - 6} fontSize={12} fill="#2b2b2b" rotation={270} />);
+    const heightM = Math.round((r.h / scale) * 1000); // mm
+    dims.push(<Line key={`dim-v-${r.id}`} points={[vx, vy1, vx, vy2]} stroke="#2b2b2b" strokeWidth={1} />);
+    dims.push(<Text key={`dim-vt-${r.id}`} text={`${heightM} mm`} x={vx-6} y={(vy1+vy2)/2 - 6} fontSize={12} fill="#2b2b2b" rotation={270} />);
     return dims;
   }
 
@@ -54,19 +54,20 @@ export default function PlanCanvas({ floors, currentFloor, onDragEnd, stageRef, 
               <Text text={`${r.name}`} x={6} y={6} fontSize={16} fill="#111" />
               <Text text={`${r.area} m²`} x={6} y={28} fontSize={12} fill="#555" />
               {r.isStair && <Text text={`楼梯`} x={6} y={46} fontSize={12} fill="#b58900" />}
+
+              {/* doors as children of draggable group: use coordinates relative to room */}
+              {showDoors && r.doors && r.doors.map((d, idx) => (
+                <Rect key={`door-${r.id}-${idx}`} x={Math.max(0, d.x - r.x)} y={Math.max(0, d.y - r.y)} width={d.w} height={d.h} fill="#6b4f2a" cornerRadius={2} />
+              ))}
+
+              {/* windows as children of draggable group: use coordinates relative to room */}
+              {showWindows && r.windows && r.windows.map((w, idx) => (
+                <Rect key={`win-${r.id}-${idx}`} x={Math.max(0, w.x - r.x)} y={Math.max(0, w.y - r.y)} width={w.w} height={w.h} fill="#cfeffd" stroke="#5fb0e6" strokeWidth={1} cornerRadius={2} />
+              ))}
+
             </Group>
 
-            {/* doors */}
-            {showDoors && r.doors && r.doors.map((d, idx) => (
-              <Rect key={`door-${r.id}-${idx}`} x={d.x} y={d.y} width={d.w} height={d.h} fill="#6b4f2a" cornerRadius={2} />
-            ))}
-
-            {/* windows */}
-            {showWindows && r.windows && r.windows.map((w, idx) => (
-              <Rect key={`win-${r.id}-${idx}`} x={w.x} y={w.y} width={w.w} height={w.h} fill="#cfeffd" stroke="#5fb0e6" strokeWidth={1} cornerRadius={2} />
-            ))}
-
-            {/* dimensions */}
+            {/* dimensions remain absolute so they follow stage coordinates */}
             {showDimensions && renderDimensions(r)}
           </Group>
         ))}
